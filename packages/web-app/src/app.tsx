@@ -49,7 +49,7 @@ export default function App() {
 
   return (
     <div>
-      <Map />
+      <Map vehicles={vehicles} />
       {/* <ul>
         {vehicles.map((vehicle) => (
           <li key={vehicle.id}>
