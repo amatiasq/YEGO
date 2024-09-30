@@ -5,7 +5,9 @@ import {
   ServerToClientEvents,
 } from 'ws-backend/types/socket';
 import { Vehicle } from 'ws-backend/types/vehicle';
-import { Map } from './map';
+import './app.css';
+import { Map } from './components/Map';
+import { YegoHeader } from './components/YegoHeader';
 
 type YegoSocket = Socket<ServerToClientEvents, ClientToServerEvents>;
 
@@ -49,20 +51,8 @@ export default function App() {
 
   return (
     <div>
-      <Map vehicles={vehicles} />
-      {/* <ul>
-        {vehicles.map((vehicle) => (
-          <li key={vehicle.id}>
-            {vehicle.name +
-              ' (' +
-              vehicle.plate_number +
-              ')' +
-              ' - ' +
-              vehicle.battery +
-              '%'}
-          </li>
-        ))}
-      </ul> */}
+      <Map className="mapview" vehicles={vehicles} />
+      <YegoHeader className="header" />
     </div>
   );
 }

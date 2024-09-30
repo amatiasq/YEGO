@@ -20,7 +20,12 @@ type MapDiv = HTMLDivElement & {
   };
 };
 
-export function Map({ vehicles }: { vehicles: Vehicle[] }) {
+export interface MapProps {
+  vehicles: Vehicle[];
+  className?: string;
+}
+
+export function Map({ vehicles, ...props }: MapProps) {
   const ref = useRef<MapDiv | null>(null);
   const id = useMemo(() => `map-${lastId++}`, []);
 
@@ -66,31 +71,17 @@ export function Map({ vehicles }: { vehicles: Vehicle[] }) {
     vehicles,
   ]);
 
-  return (
-    <div
-      id={id}
-      ref={ref}
-      style={{
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        width: '100dvw',
-        height: '100dvh',
-      }}
-    />
-  );
+  return <div {...props} id={id} ref={ref} />;
 }
 
 function initializeMap(containerId: string) {
   const map = new mapboxgl.Map({
     container: containerId,
     style: 'mapbox://styles/mapbox/streets-v9',
-    projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
     zoom: 13,
     center: [2.165, 41.395],
   });
 
-  map.addControl(new mapboxgl.NavigationControl());
   map.scrollZoom.disable();
 
   return Object.assign(map, { markers: {} });
