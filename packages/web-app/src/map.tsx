@@ -38,8 +38,8 @@ function initializeMap(containerId: string) {
     container: containerId,
     style: 'mapbox://styles/mapbox/streets-v9',
     projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
-    zoom: 1,
-    center: [30, 15],
+    zoom: 13,
+    center: [2.165, 41.395],
   });
 
   map.addControl(new mapboxgl.NavigationControl());

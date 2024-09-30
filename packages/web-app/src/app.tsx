@@ -49,9 +49,8 @@ export default function App() {
 
   return (
     <div>
-      <h1>Yego Tiny</h1>
       <Map />
-      <ul>
+      {/* <ul>
         {vehicles.map((vehicle) => (
           <li key={vehicle.id}>
             {vehicle.name +
@@ -63,7 +62,7 @@ export default function App() {
               '%'}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
