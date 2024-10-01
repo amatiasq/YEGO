@@ -7,6 +7,7 @@ import {
 import { Vehicle } from 'ws-backend/types/vehicle';
 import './app.css';
 import { Map } from './components/Map';
+import { VehicleDetails } from './components/VehicleDetails';
 import { YegoHeader } from './components/YegoHeader';
 
 type YegoSocket = Socket<ServerToClientEvents, ClientToServerEvents>;
@@ -17,6 +18,7 @@ export default function App() {
   );
 
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
 
   useEffect(() => {
     const socket = socketClient.current;
@@ -51,8 +53,13 @@ export default function App() {
 
   return (
     <div>
-      <Map className="mapview" vehicles={vehicles} />
+      <Map
+        className="mapview"
+        vehicles={vehicles}
+        onSelect={(vehicle) => setSelectedVehicle(vehicle)}
+      />
       <YegoHeader className="header" />
+      {selectedVehicle ? <VehicleDetails vehicle={selectedVehicle} /> : null}
     </div>
   );
 }

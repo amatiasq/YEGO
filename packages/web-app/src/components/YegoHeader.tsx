@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import logo from '../assets/logo.png';
 import { cn } from '../util/cn';
 import './YegoHeader.css';
 
@@ -9,7 +10,7 @@ export interface YegoHeaderProps {
 export function YegoHeader({ className }: YegoHeaderProps) {
   return (
     <header className={cn('yego-header', className)}>
-      <img className="logo" src="/logo.png" alt="Yego" />
+      <img className="logo" src={logo} alt="Yego" />
       <Hamburger className="hamburger" />
       <nav>
         <a href="/" className="active">
