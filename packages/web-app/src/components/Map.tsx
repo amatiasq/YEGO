@@ -62,12 +62,12 @@ function initializeMap(containerId: string) {
 
     map.addLayer({
       id: 'zones-layer',
-      type: 'fill', // This specifies that we are rendering polygons
-      source: 'zones', // The GeoJSON source defined above
+      type: 'fill',
+      source: 'zones',
       layout: {},
       paint: {
-        'fill-color': '#888888', // Color for the polygon
-        'fill-opacity': 0.5, // Semi-transparent fill
+        'fill-color': '#888888',
+        'fill-opacity': 0.5,
       },
     });
   });

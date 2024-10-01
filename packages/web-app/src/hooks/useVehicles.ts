@@ -20,7 +20,6 @@ export function useVehicles() {
     if (!socket) return;
 
     socket.on('vehicle', (vehicle) => {
-      // Feel free to change the data structure to fit your needs.
       setVehicles((prevVehicles) => {
         const vehicleIndex = prevVehicles.findIndex((v) => v.id === vehicle.id);
 
