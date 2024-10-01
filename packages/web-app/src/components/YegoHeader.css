@@ -1,29 +1,18 @@
 .yego-header {
   position: absolute;
-  left: 24px;
-  right: 24px;
-  top: 24px;
+  background: #ffffff;
 
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  padding: 8px;
   gap: 40px;
 
-  background: #ffffff;
-  border-radius: 9999px;
-  box-shadow: 0px 10px 28px 7px rgba(4, 117, 105, 0.08),
-    0px 8px 8px -4px rgba(16, 24, 40, 0.03);
-
-  .logo {
-    max-height: 48px;
-  }
+  padding: 8px;
 
   nav {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
-    gap: 12px;
 
     font-family: 'Arial';
     font-style: normal;
@@ -41,17 +30,95 @@
     justify-content: center;
     align-items: center;
 
-    padding: 0 36px;
-    border-radius: 99px;
-
     &.active {
-      background-color: #0B9D8E;
+      background-color: #0b9d8e;
       color: #ffffff;
     }
 
     &:not(.active) {
       color: #475467;
-      background-color: #F2F4F7;
+      background-color: #f2f4f7;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .yego-header {
+    top: 0;
+    left: 0;
+    right: 0;
+
+    justify-content: space-between;
+
+    padding-inline: 12px;
+    box-shadow: 0px 2px 24px -4px rgba(16, 24, 40, 0.08),
+      0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+
+    .logo {
+      max-height: 40px;
+    }
+
+    .hamburger {
+      border: none;
+      appearance: none;
+      stroke: black;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:not(.open) + nav {
+        display: none;
+      }
+
+      &.open + nav {
+        position: absolute;
+        top: calc(100% + 5px);
+        right: 5px;
+        overflow: hidden;
+
+        flex-direction: column;
+
+        border: 1px solid #f2f4f7;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0px 10px 28px 7px rgba(4, 117, 105, 0.08),
+          0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+      }
+    }
+
+    a {
+      padding: 8px 36px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .yego-header {
+    left: 24px;
+    right: 24px;
+    top: 24px;
+
+    border-radius: 9999px;
+    box-shadow: 0px 10px 28px 7px rgba(4, 117, 105, 0.08),
+      0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+
+    .logo {
+      max-height: 48px;
+    }
+
+    .hamburger {
+      display: none;
+    }
+
+    nav {
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    a {
+      padding: 0 36px;
+      border-radius: 99px;
     }
   }
 }

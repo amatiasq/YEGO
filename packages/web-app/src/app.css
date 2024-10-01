@@ -15,9 +15,3 @@ body {
   width: 100dvw;
   height: 100dvh;
 }
-
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
