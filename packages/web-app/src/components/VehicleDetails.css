@@ -1,53 +1,30 @@
 .vehicle-details {
   position: absolute;
-  top: 108px;
-  left: 24px;
-
   display: flex;
   flex-direction: column;
   align-self: stretch;
 
   background: #f2f4f7;
-  padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0px 10px 28px 7px rgba(4, 117, 105, 0.08),
-    0px 8px 8px -4px rgba(16, 24, 40, 0.03);
-
   color: #475467;
+
   font-family: 'Arial';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
 
-  h2, p { margin: 0 }
+  h2, p { margin: 0; }
 
   .vehicle-details__content {
-    padding: 12px;
-    min-width: 326px;
     border: 1px solid #dce0e6;
 
-    &:first-of-type {
-      border-radius: 8px 8px 0 0;
-    }
-    &:last-of-type {
-      border-radius: 0 0 8px 8px;
-    }
-    & + & {
-      border-top: 0;
-    }
+    & + & { border-top: 0; }
   }
 
   header {
     display: grid;
-    grid-template-columns: 96px 1fr;
+    grid-template-columns: 70px 1fr;
     gap: 12px;
-  }
-
-  footer {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
   }
 
   .vehicle-illustration {
@@ -84,6 +61,62 @@
       inset: 0;
       background: var(--_color);
       opacity: 0.1;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .vehicle-details {
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border-radius: 16px 16px 0 0;
+
+    header {
+      border-radius: 16px 16px 0 0;
+      padding: 16px;
+      padding-bottom: 0;
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+
+      padding: 16px;
+      padding-bottom: 32px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .vehicle-details {
+    top: 108px;
+    left: 24px;
+
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 28px 7px rgba(4, 117, 105, 0.08),
+      0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+
+    .vehicle-details__content {
+      padding: 12px;
+      min-width: 326px;
+
+      &:first-of-type {
+        border-radius: 8px 8px 0 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 0 8px 8px;
+      }
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
   }
 }
